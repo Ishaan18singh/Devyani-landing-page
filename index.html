@@ -212,10 +212,13 @@
   }
   .cast-card{ text-align:center; }
   .cast-photo{
-    width:100%; aspect-ratio:3/4; margin-bottom:20px; position:relative; overflow:hidden;
+    display:block; width:100%; aspect-ratio:3/4; margin-bottom:20px; position:relative; overflow:hidden;
     background:linear-gradient(150deg, #1d150a, #100b06 70%);
     border:1px solid var(--line);
   }
+  a.cast-photo{ cursor:pointer; }
+  a.cast-photo img{ transition:transform .5s ease; }
+  a.cast-photo:hover img{ transform:scale(1.06); }
   .cast-photo::after{
     content:""; position:absolute; inset:0;
     background:radial-gradient(circle at 50% 20%, rgba(201,168,106,0.16), transparent 65%);
@@ -340,12 +343,12 @@
     <h2 class="section-title serif reveal">Cast &amp; Crew</h2>
     <div class="cast-grid">
       <div class="cast-card reveal">
-        <div class="cast-photo"><img src="cast-center-man.jpg" alt="Ashwani Kumar in Devyani"></div>
+        <a class="cast-photo" href="https://www.instagram.com/ashwaniias?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Ashwani Kumar on Instagram"><img src="cast-center-man.jpg" alt="Ashwani Kumar in Devyani"></a>
         <h3 class="serif">Ashwani Kumar</h3>
         <p>Lead Role</p>
       </div>
       <div class="cast-card reveal">
-        <div class="cast-photo"><img src="cast-right-woman.jpg" alt="Archana Gautam in Devyani"></div>
+        <a class="cast-photo" href="https://www.instagram.com/archanagautamm?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Archana Gautam on Instagram"><img src="cast-right-woman.jpg" alt="Archana Gautam in Devyani"></a>
         <h3 class="serif">Archana Gautam</h3>
         <p>Lead Role</p>
       </div>
