@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devyani | A ZEE5 Original Short Film</title>
+<meta property="og:type" content="video.movie">
+<meta property="og:title" content="Devyani | A ZEE5 Original Short Film">
+<meta property="og:description" content="When fear meets hope, a daughter becomes the promise of a better tomorrow. Watch Devyani now — free on ZEE5.">
+<meta property="og:image" content="https://devyani-landing-page.vercel.app/devyani-poster.jpg">
+<meta property="og:url" content="https://devyani-landing-page.vercel.app">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Devyani | A ZEE5 Original Short Film">
+<meta name="twitter:description" content="When fear meets hope, a daughter becomes the promise of a better tomorrow. Watch Devyani now — free on ZEE5.">
+<meta name="twitter:image" content="https://devyani-landing-page.vercel.app/devyani-poster.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@500;600;700;800&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0b0906;
+    --bg-alt: #120e0a;
+    --gold: #c9a86a;
+    --gold-light: #e6d5ad;
+    --gold-dim: #8a7245;
+    --cream: #f3ecdd;
+    --muted: #a89b84;
+    --line: rgba(201,168,106,0.25);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.serif{ font-family:'Playfair Display', serif; }
+  .script{ font-family:'Cormorant Garamond', serif; }
+
+  a{ color:inherit; text-decoration:none; }
+  .container{ max-width:1180px; margin:0 auto; padding:0 32px; }
+
+  /* subtle gold noise texture via layered gradients */
+  .bg-texture{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% 0%, rgba(201,168,106,0.10), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 20%, rgba(201,168,106,0.07), transparent 60%),
+      radial-gradient(ellipse 900px 600px at 50% 100%, rgba(201,168,106,0.06), transparent 60%);
+  }
+
+  /* NAV */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:26px 5vw;
+    transition:background .4s ease, padding .4s ease, border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(11,9,6,0.85);
+    backdrop-filter:blur(10px);
+    padding:16px 5vw;
+    border-bottom:1px solid var(--line);
+  }
+  .logo{ font-size:1.3rem; letter-spacing:0.12em; font-weight:600; color:var(--gold-light); }
+  nav ul{ display:flex; gap:38px; list-style:none; }
+  nav a{
+    font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--muted); transition:color .3s ease; position:relative;
+  }
+  nav a:hover{ color:var(--gold-light); }
+  .nav-toggle{ display:none; }
+
+  /* HERO */
+  .hero{
+    position:relative; padding:130px 24px 70px;
+    text-align:center; background:var(--bg); overflow:hidden;
+  }
+  .hero-media{
+    position:relative; max-width:1180px; margin:0 auto; overflow:hidden;
+    border:1px solid var(--line); border-radius:2px;
+    box-shadow:0 50px 140px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,106,0.06);
+    opacity:0; animation:fadeUp 1.1s ease forwards .2s;
+  }
+  .hero-media img{ display:block; width:100%; height:auto; }
+  .hero-vignette{
+    position:absolute; inset:0; pointer-events:none;
+    box-shadow:inset 0 0 90px 30px rgba(11,9,6,0.55);
+    background:linear-gradient(180deg, rgba(11,9,6,0.12) 0%, transparent 18%, transparent 82%, rgba(11,9,6,0.35) 100%);
+  }
+  .hero-bar{ position:relative; z-index:2; max-width:820px; margin:44px auto 0; }
+  .badge-free5{
+    display:inline-flex; align-items:center; gap:10px; padding:11px 24px;
+    border:1px solid var(--gold); border-radius:30px; background:rgba(201,168,106,0.08);
+    font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-light);
+    margin-bottom:26px; opacity:0; animation:fadeUp 1s ease forwards .5s;
+  }
+  .badge-free5 .dot{ width:7px; height:7px; border-radius:50%; background:#7ed957; box-shadow:0 0 8px #7ed957; }
+  .hero-bar .sub{
+    font-family:'Cormorant Garamond', serif; font-style:italic;
+    font-size:clamp(1.1rem, 2.2vw, 1.4rem); color:var(--muted);
+    margin:0 0 34px; letter-spacing:0.02em;
+    opacity:0; animation:fadeUp 1s ease forwards .65s;
+  }
+  .cta-row{ display:flex; gap:20px; justify-content:center; flex-wrap:wrap; opacity:0; animation:fadeUp 1.1s ease forwards .8s; }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:16px 34px; font-size:0.8rem; letter-spacing:0.18em; text-transform:uppercase;
+    border-radius:2px; transition:all .35s ease; cursor:pointer; border:1px solid var(--gold);
+  }
+  .btn-primary{ background:var(--gold); color:#14100a; font-weight:500; }
+  .btn-primary:hover{ background:var(--gold-light); box-shadow:0 8px 30px rgba(201,168,106,0.35); transform:translateY(-2px); }
+  .btn-outline{ background:transparent; color:var(--gold-light); }
+  .btn-outline:hover{ background:rgba(201,168,106,0.1); transform:translateY(-2px); }
+
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes pulseLine{ 0%,100%{opacity:.3;} 50%{opacity:1;} }
+
+  /* SECTION shared */
+  section{ position:relative; z-index:1; padding:130px 0; }
+  .divider{ width:60px; height:1px; background:var(--gold-dim); margin:0 auto 28px; }
+  .eyebrow{
+    text-align:center; font-size:0.75rem; letter-spacing:0.35em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:18px;
+  }
+  .section-title{
+    text-align:center; font-size:clamp(2.1rem, 4vw, 3rem); color:var(--gold-light);
+    margin-bottom:8px; font-weight:600;
+  }
+  .reveal{ opacity:0; transform:translateY(40px); transition:opacity .9s ease, transform .9s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* TRAILER */
+  .trailer-frame{
+    max-width:900px; margin:60px auto 0; position:relative; width:100%;
+    aspect-ratio:16/9; border:1px solid var(--line); overflow:hidden;
+    box-shadow:0 40px 110px rgba(0,0,0,0.55);
+    background:#000;
+  }
+  .trailer-frame iframe{ position:absolute; inset:0; width:100%; height:100%; }
+
+  /* SYNOPSIS */
+  .synopsis{ background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .synopsis-media{
+    max-width:900px; margin:70px auto 0; border:1px solid var(--line);
+    overflow:hidden; box-shadow:0 30px 90px rgba(0,0,0,0.5);
+  }
+  .synopsis-media img{ display:block; width:100%; height:auto; }
+  .synopsis-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:60px; align-items:start; margin-top:60px;
+  }
+
+  .synopsis-text p{ font-size:1.05rem; line-height:1.9; color:var(--muted); margin-bottom:20px; font-weight:300; }
+  .synopsis-text p.tagline strong{ font-weight:300; font-size:1.05rem; color:var(--cream); letter-spacing:0.01em; }
+  .synopsis-text p:first-of-type::first-letter{
+    font-family:'Playfair Display', serif; font-size:3.4rem; float:left; line-height:0.8;
+    padding:8px 10px 0 0; color:var(--gold);
+  }
+  .meta-list{ display:grid; grid-template-columns:1fr; gap:20px; }
+  .meta-item{ border-top:1px solid var(--line); padding-top:12px; }
+  .meta-item span{ display:block; font-size:0.68rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold-dim); margin-bottom:6px; }
+  .meta-item strong{ font-family:'Playfair Display', serif; font-weight:500; font-size:1.05rem; color:var(--cream); }
+
+  /* CAST */
+  .cast-grid{
+    margin-top:70px; display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:40px;
+  }
+  .cast-card{ text-align:center; }
+  .cast-photo{
+    width:100%; aspect-ratio:3/4; margin-bottom:20px; position:relative; overflow:hidden;
+    background:linear-gradient(150deg, #1d150a, #100b06 70%);
+    border:1px solid var(--line);
+  }
+  .cast-photo::after{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(circle at 50% 20%, rgba(201,168,106,0.16), transparent 65%);
+  }
+  .cast-photo .initial{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:'Playfair Display', serif; font-size:3rem; color:var(--gold-dim);
+  }
+  .cast-photo img{ width:100%; height:100%; object-fit:cover; position:relative; z-index:1; }
+  .cast-card h3{ font-size:1.2rem; color:var(--gold-light); margin-bottom:4px; font-weight:600; }
+  .cast-card p{ font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
+
+  /* WATCH CTA */
+  .watch-cta{ text-align:center; }
+  .platform-badge{
+    display:inline-flex; align-items:center; gap:10px; padding:10px 22px;
+    border:1px solid var(--line); border-radius:30px; font-size:0.75rem; letter-spacing:0.2em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:34px;
+  }
+  .dot{ width:7px; height:7px; border-radius:50%; background:#7ed957; box-shadow:0 0 8px #7ed957; }
+  .watch-cta h2{ font-size:clamp(2.2rem, 5vw, 3.4rem); color:var(--gold-light); margin-bottom:24px; }
+  .watch-cta p.lead{ color:var(--muted); max-width:560px; margin:0 auto 44px; font-size:1.05rem; line-height:1.8; }
+
+  /* FOOTER */
+  footer{ padding:60px 0 40px; border-top:1px solid var(--line); }
+  .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px; }
+  .footer-logo{ font-family:'Playfair Display', serif; font-size:1.2rem; color:var(--gold-light); letter-spacing:0.08em; }
+  .footer-links{ display:flex; gap:30px; list-style:none; }
+  .footer-links a{ font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); transition:color .3s; }
+  .footer-links a:hover{ color:var(--gold-light); }
+  .socials{ display:flex; gap:16px; }
+  .socials a{
+    width:38px; height:38px; border:1px solid var(--line); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:0.8rem; color:var(--gold);
+    transition:all .3s ease;
+  }
+  .socials a:hover{ background:var(--gold); color:#14100a; }
+  .fine-print{ text-align:center; margin-top:34px; font-size:0.72rem; color:var(--gold-dim); letter-spacing:0.05em; }
+
+  @media (max-width: 860px){
+    nav ul{ display:none; }
+    .synopsis-grid{ grid-template-columns:1fr; gap:44px; }
+    .footer-inner{ flex-direction:column; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-texture"></div>
+
+<header id="siteHeader">
+  <div class="logo serif">DEVYANI</div>
+  <nav>
+    <ul>
+      <li><a href="#trailer">Trailer</a></li>
+      <li><a href="#synopsis">Synopsis</a></li>
+      <li><a href="#cast">Cast</a></li>
+      <li><a href="#watch">Watch</a></li>
+    </ul>
+  </nav>
+  <a href="https://zee5.onelink.me/RlQq/77z2vo8n" target="_blank" rel="noopener" class="btn btn-outline" style="padding:10px 22px; font-size:0.7rem;">Watch on ZEE5</a>
+</header>
+
+<section class="hero">
+  <div class="hero-media">
+    <img src="devyani-poster.jpg" alt="Devyani official poster — a Gautam Motion Picture film written and directed by Ashish K. Panda, featuring Ashwani Kumar and Archana Gautam">
+    <div class="hero-vignette"></div>
+  </div>
+  <div class="hero-bar">
+    <div class="badge-free5"><span class="dot"></span> FREE5 on ZEE5 — Watch for Free</div>
+    <p class="sub">A Gautam Motion Picture · Written &amp; Directed by Ashish K. Panda</p>
+    <div class="cta-row">
+      <a href="https://zee5.onelink.me/RlQq/77z2vo8n" target="_blank" rel="noopener" class="btn btn-primary">▶ Watch Now — Free on ZEE5</a>
+      <a href="#trailer" class="btn btn-outline">Watch Trailer</a>
+    </div>
+  </div>
+</section>
+
+<section id="trailer">
+  <div class="container">
+    <div class="eyebrow reveal">Official</div>
+    <h2 class="section-title serif reveal">Trailer</h2>
+    <div class="trailer-frame reveal">
+      <iframe src="https://www.youtube.com/embed/xsnelJzlEdc" title="Devyani Official Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="synopsis" id="synopsis">
+  <div class="container">
+    <div class="eyebrow reveal">The Story</div>
+    <h2 class="section-title serif reveal">Synopsis</h2>
+    <div class="synopsis-media reveal">
+      <img src="poster-banner-noZee5.jpg" alt="Devyani poster artwork" loading="lazy">
+    </div>
+    <div class="synopsis-grid">
+      <div class="synopsis-text reveal">
+        <p>Devyani is a drama-suspense film that follows fear giving way to hope, as a daughter becomes the promise of a better tomorrow. Starring Ashwani Kumar and Archana Gautam, and written and directed by Ashish K. Panda, the film is a Gautam Motion Picture production co-produced by Aaroha Production. Devyani premieres August 5, 2026, streaming free on ZEE5 under the FREE5 banner.</p>
+        <p class="tagline"><strong>When fear meets hope, a daughter becomes the promise of a better tomorrow. Watch Devyani now.</strong></p>
+        <p><em>— Official tagline, from the ZEE5 trailer</em></p>
+      </div>
+      <div class="synopsis-meta reveal">
+        <div class="meta-list">
+          <div class="meta-item"><span>Genre</span><strong>Drama, Suspense</strong></div>
+          <div class="meta-item"><span>Release Date</span><strong>August 5, 2026</strong></div>
+          <div class="meta-item"><span>Language</span><strong>Hindi</strong></div>
+          <div class="meta-item"><span>Written &amp; Directed by</span><strong>Ashish K. Panda</strong></div>
+          <div class="meta-item"><span>Featuring</span><strong>Ashwani Kumar &amp; Archana Gautam</strong></div>
+          <div class="meta-item"><span>Production</span><strong>Gautam Motion Picture</strong></div>
+          <div class="meta-item"><span>Co-Producer</span><strong>Aaroha Production</strong></div>
+          <div class="meta-item"><span>Streaming</span><strong>FREE5 on ZEE5 — Free</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cast">
+  <div class="container">
+    <div class="eyebrow reveal">Meet the</div>
+    <h2 class="section-title serif reveal">Cast &amp; Crew</h2>
+    <div class="cast-grid">
+      <div class="cast-card reveal">
+        <div class="cast-photo"><img src="cast-center-man.jpg" alt="Ashwani Kumar in Devyani"></div>
+        <h3 class="serif">Ashwani Kumar</h3>
+        <p>Lead Role</p>
+      </div>
+      <div class="cast-card reveal">
+        <div class="cast-photo"><img src="cast-right-woman.jpg" alt="Archana Gautam in Devyani"></div>
+        <h3 class="serif">Archana Gautam</h3>
+        <p>Lead Role</p>
+      </div>
+      <div class="cast-card reveal">
+        <div class="cast-photo"><span class="initial">A</span></div>
+        <h3 class="serif">Ashish K. Panda</h3>
+        <p>Writer &amp; Director</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="watch-cta" id="watch">
+  <div class="container reveal">
+    <div class="platform-badge"><span class="dot"></span> FREE5 on ZEE5</div>
+    <h2 class="serif">Watch Devyani — Free</h2>
+    <p class="lead">Stream the full short film free on ZEE5 under the FREE5 banner — anytime, anywhere, on any screen.</p>
+    <a href="https://zee5.onelink.me/RlQq/77z2vo8n" target="_blank" rel="noopener" class="btn btn-primary">▶ Watch Now — Free on ZEE5</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">DEVYANI</div>
+      <ul class="footer-links">
+        <li><a href="#synopsis">Synopsis</a></li>
+        <li><a href="#cast">Cast</a></li>
+        <li><a href="#watch">Watch</a></li>
+      </ul>
+      <div class="socials">
+        <a href="https://www.instagram.com/gautammotionpicture/" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="X / Twitter">X</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+    <p class="fine-print">© 2026 Devyani — A Gautam Motion Picture film. Free to watch on ZEE5 (FREE5). All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
