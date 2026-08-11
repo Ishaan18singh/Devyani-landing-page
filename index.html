@@ -241,6 +241,26 @@
   .cast-socials a:hover{ background:var(--gold); color:#14100a; }
   .cast-socials a svg{ width:13px; height:13px; fill:currentColor; }
 
+  /* PRESS */
+  .press{ background:var(--bg-alt); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .press-grid{
+    margin-top:70px; display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:32px;
+  }
+  .press-card{
+    position:relative; padding:32px 28px; border:1px solid var(--line);
+    background:linear-gradient(160deg, #1a1309, #100b06 70%);
+  }
+  .press-card .mark{
+    font-family:'Playfair Display', serif; font-size:2.2rem; color:var(--gold-dim);
+    line-height:1; display:block; margin-bottom:10px;
+  }
+  .press-card blockquote{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:1.15rem;
+    line-height:1.6; color:var(--cream); margin-bottom:18px;
+  }
+  .press-card .press-name{ font-size:0.95rem; color:var(--gold-light); font-weight:600; }
+  .press-card .press-role{ font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin-top:2px; }
+
   /* WATCH CTA */
   .watch-cta{ text-align:center; }
   .platform-badge{
@@ -287,6 +307,7 @@
       <li><a href="#trailer">Trailer</a></li>
       <li><a href="#synopsis">Synopsis</a></li>
       <li><a href="#cast">Cast</a></li>
+      <li><a href="#press">Press</a></li>
       <li><a href="#watch">Watch</a></li>
     </ul>
   </nav>
@@ -381,6 +402,51 @@
         <div class="cast-socials">
           <a href="https://www.instagram.com/ashishpandaofficial/?hl=en" target="_blank" rel="noopener" aria-label="Ashish K. Panda on Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="press" id="press">
+  <div class="container">
+    <div class="eyebrow reveal">In the News</div>
+    <h2 class="section-title serif reveal">Press &amp; Reactions</h2>
+    <div class="press-grid reveal">
+      <div class="press-card">
+        <span class="mark">&ldquo;</span>
+        <blockquote>Devyani conveys a message and tries to show the struggles and strength in a daughter&rsquo;s life.</blockquote>
+        <div class="press-name">Pankaj Singh</div>
+        <div class="press-role">BJP MLA, Noida</div>
+      </div>
+      <div class="press-card">
+        <span class="mark">&ldquo;</span>
+        <blockquote>As soon as I saw the trailer, I found it commendable&hellip; the kind of acting they have done is commendable.</blockquote>
+        <div class="press-name">Vijender Singh</div>
+        <div class="press-role">Olympic Boxer</div>
+      </div>
+      <div class="press-card">
+        <span class="mark">&ldquo;</span>
+        <blockquote>When we started planning what kind of short film we would make, I met Ashwani, and he suggested that we should make something with a social message that would have a positive impact on our society.</blockquote>
+        <div class="press-name">Ashish K. Panda</div>
+        <div class="press-role">Director, Devyani</div>
+      </div>
+      <div class="press-card">
+        <span class="mark">&ldquo;</span>
+        <blockquote>In today&rsquo;s society, it is believed that families are not happy when a daughter is born&hellip; I have tried to show that is not the whole picture &mdash; there are many people who wish to have a daughter.</blockquote>
+        <div class="press-name">Ashwani Kumar</div>
+        <div class="press-role">Lead Actor</div>
+      </div>
+      <div class="press-card">
+        <span class="mark">&ldquo;</span>
+        <blockquote>Sometimes, very small things can convey a very big message.</blockquote>
+        <div class="press-name">Abhishek Singh</div>
+        <div class="press-role">Former IAS Officer</div>
+      </div>
+      <div class="press-card">
+        <span class="mark">&ldquo;</span>
+        <blockquote>It is a very interesting concept, and we are quite excited. I&rsquo;ve got my school students here to see what this movie holds for us.</blockquote>
+        <div class="press-name">Vijay Datta</div>
+        <div class="press-role">Principal, Modern School, Barakhamba</div>
       </div>
     </div>
   </div>
